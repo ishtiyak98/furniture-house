@@ -1,0 +1,17 @@
+.notFound-container{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0,0,0,0.50)) ,url("../../assets/not-found.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+}
+
+.text-box{
+    padding-top: 130px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.text-box h1{
+    font-size: 4em;
+}
