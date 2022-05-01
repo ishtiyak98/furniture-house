@@ -1,0 +1,33 @@
+.left-img{
+    
+    height: 100vh;
+    background-image: url("../../assets/not-found.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login-form{
+    width: 100%;
+    height: 100vh;
+}
+
+.login-form input{
+    width: 450px;
+}
+
+
+@media only screen and (max-width: 576px) {
+    .login-form input{
+        width: 320px;
+    }
+}
+/* 
+@media only screen and (min-width: 576px) and (max-width: 768px) {
+    .banner-text h1{
+        font-size: 6em;
+    }
+    .banner-text h2{
+        font-size: 3em;
+    }
+} */
