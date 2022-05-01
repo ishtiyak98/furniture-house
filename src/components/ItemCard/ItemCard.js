@@ -1,8 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const ItemCard = ({ item }) => {
-  const { name, image, description, price, quantity, supplier_name } = item;
-
+  const { _id,name, image, description, price, quantity, supplier_name } = item;
+  const navigate = useNavigate();
+  console.log(_id);
+  
   return (
     <div className="col-lg-4 item-card p-5">
       <img className="img-fluid" src={image} alt="" />
@@ -13,7 +16,7 @@ const ItemCard = ({ item }) => {
         <h5>Price: {price}</h5>
         <h5>Quantity: {quantity}</h5>
       </div>
-      <button className="btn btn-dark">Manage</button>
+      <button className="btn btn-dark" onClick={()=>{navigate(`/inventory/${_id}`)}}>Manage</button>
     </div>
   );
 };

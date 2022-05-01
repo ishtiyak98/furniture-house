@@ -2,7 +2,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./components/HomePage/HomePage";
 import LoginPage from "./components/LoginPage/LoginPage";
+import ManageItem from "./components/ManageItem/ManageItem";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import SignupPage from "./components/SignupPage/SignupPage";
 
 function App() {
@@ -13,6 +15,11 @@ function App() {
         <Route path="/home" element={<HomePage></HomePage>}></Route>
         <Route path="/login" element={<LoginPage></LoginPage>}></Route>
         <Route path="/signup" element={<SignupPage></SignupPage>}></Route>
+        <Route path="/inventory/:_id" element={
+          <ProtectedRoute>
+            <ManageItem></ManageItem>
+          </ProtectedRoute>}>
+        </Route>
         <Route path="*" element={<PageNotFound></PageNotFound>}></Route>
       </Routes>
     </div>
