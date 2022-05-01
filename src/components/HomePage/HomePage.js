@@ -1,14 +1,14 @@
-import React from 'react';
-import Header from '../Header/Header';
-import HomeBanner from '../HomeBanner/HomeBanner';
+import React from "react";
+import HomeBanner from "../HomeBanner/HomeBanner";
+import Items from "../Items/Items";
 
 const HomePage = () => {
-    return (
-        <div>
-           <HomeBanner></HomeBanner>
-            <h1>homesac</h1>
-        </div>
-    );
+  return (
+    <div>
+      <HomeBanner></HomeBanner>
+      <Items></Items>
+    </div>
+  );
 };
 
 export default HomePage;

@@ -39,7 +39,6 @@
 @media only screen and (min-width: 576px) and (max-width: 768px) {
     .banner-text h1{
         font-size: 6em;
-        color: red;
     }
     .banner-text h2{
         font-size: 3em;
