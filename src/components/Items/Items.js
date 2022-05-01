@@ -13,7 +13,7 @@ const Items = () => {
   console.log(items);
   return (
     <div className="py-5 my-5 container">
-      <h1 className="text-center">Items</h1>
+      <h1 className="text-center">My Inventory</h1>
       <div className="row gx-4 gy-5">
         {
             items.map( item => <ItemCard key={item._id} item={item}></ItemCard> )
