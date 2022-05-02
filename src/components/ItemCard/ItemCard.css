@@ -1,5 +1,28 @@
+*{
+    font-family: "Raleway";
+}
+
 .item-card{
-    width: 300px;
-    margin-left: 20px;
-    margin-right: 20px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.item-card-column{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.item-card img{
+    height: 340px;
+}
+
+.number{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/*! for tablet breakpoints */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    .item-card-column{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
 }

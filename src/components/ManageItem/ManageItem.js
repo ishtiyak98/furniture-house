@@ -4,7 +4,6 @@ import Swal from "sweetalert2";
 import Header from "../Header/Header";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Button, Form } from "react-bootstrap";
 
 const ManageItem = () => {
   const { _id } = useParams();
@@ -37,20 +36,31 @@ const ManageItem = () => {
       toast.success("Item is delivered successfully!", {
         position: "bottom-right",
       });
-      // updateDB();
     }
   };
 
   const handleRestock = (e) => {
     e.preventDefault();
     const restock = parseInt(e.target.restock.value);
-    setChangeQuant(changeQuant + restock);
-    e.target.reset();
+    if (restock <= 0) {
+      Swal.fire({
+        title: "Error",
+        text: "Minimum restock quantity reached",
+        icon: "error",
+      });
+    }
+    else{
+      setChangeQuant(changeQuant + restock);
+      toast.success("Item is restocked successfully!", {
+        position: "bottom-right",
+      });
+      e.target.reset();
+    }
   };
 
   useEffect(() => {
     const updatedItem = {image, name, description, supplier_name, price, changeQuant};
-    console.log(updatedItem);
+
     fetch(`http://localhost:5000/inventory/${_id}`, {
       method: "PUT",
       headers: {
@@ -62,33 +72,29 @@ const ManageItem = () => {
       .then((data) => console.log(data));
   }, [changeQuant]);
 
-  // console.log("from local: ", changeQuant);
   return (
     <div>
       <Header></Header>
-      <div className="container py-5 my-5">
-        <div className="row gx-lg-5">
-          <div className="col-lg-4">
-            <img className="img-fluid w-100" src={image} alt="" />
-          </div>
-          <div className="col-lg-8 d-flex align-items-center">
-            <div>
-              <h1>{name}</h1>
-              <h3>Supplier Name : {supplier_name}</h3>
-              <p className="w-75">{description}</p>
-              <h5>Price : ${price}</h5>
-              <h5>Quantity : {changeQuant}</h5>
-              <button
-                className="btn btn-dark mb-4 mt-3"
-                onClick={handleDelivered}
-              >
-                Delivered
-              </button>
-              <div>
-                <form onSubmit={handleRestock}>
-                  <input type="number" name="restock" id="restock" />
-                  <input type="submit" value="Restock" />
-                </form>
+      <div className="container py-2 my-5 py-md-3 my-md-3 py-lg-5 my-lg-5">
+        <div className="w-75 mx-auto">
+          <div className="row gx-lg-5">
+            <div className="col-lg-4">
+              <img className="img-fluid w-100 h-100" src={image} alt=""/>
+            </div>
+            <div className="col-lg-8 d-flex align-items-center">
+              <div className="text-lg-start text-center mt-3 mt-lg-0">
+                <h1 className="fw-bold mb-3">{name}</h1>
+                <h3 className="mb-3">Supplier Name : {supplier_name}</h3>
+                <p className="w-100 mb-3">{description}</p>
+                <h5 className="mb-3">Price : ${price}</h5>
+                <h5>Quantity : {changeQuant}</h5>
+                <button className="btn btn-dark mb-4 mt-3" onClick={handleDelivered}>Delivered</button>
+                <div>
+                  <form onSubmit={handleRestock}>
+                    <input type="number" name="restock" id="restock"/>
+                    <input type="submit" value="Restock" />
+                  </form>
+                </div>
               </div>
             </div>
           </div>
