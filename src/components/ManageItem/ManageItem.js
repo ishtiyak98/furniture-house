@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import Header from "../Header/Header";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Footer from "../Footer/Footer";
 
 const ManageItem = () => {
   const { _id } = useParams();
@@ -15,32 +16,31 @@ const ManageItem = () => {
       .then((data) => setItemDetails(data));
   }, [_id]);
 
-  const { image, name, description, supplier_name, price, quantity } =
-    itemDetails;
-  const [changeQuant, setChangeQuant] = useState(0);
+  const { image, name, description, supplier_name, price, quantity } = itemDetails;
 
-  useEffect(() => {
-    setChangeQuant(quantity);
-  }, [quantity]);
-
-  const handleDelivered = () => {
-    if (changeQuant <= 0) {
+  const handleDelivered =()=>{
+    const {quantity, ...rest} = itemDetails;
+    if (quantity <= 0) {
       Swal.fire({
         title: "Error",
         text: "Minimum quantity reached",
         icon: "error",
       });
-    } else {
-      setChangeQuant(changeQuant - 1);
-
+    }
+    else{
+      const newQuantity = quantity - 1;
+      const updatedDetails = {quantity: newQuantity, ...rest};
+      setItemDetails(updatedDetails);
+      updateDB(updatedDetails);
       toast.success("Item is delivered successfully!", {
         position: "bottom-right",
       });
     }
-  };
+  }
 
-  const handleRestock = (e) => {
+  const handleRestock =(e)=> {
     e.preventDefault();
+    const {quantity, ...rest} = itemDetails;
     const restock = parseInt(e.target.restock.value);
     if (restock <= 0) {
       Swal.fire({
@@ -50,27 +50,29 @@ const ManageItem = () => {
       });
     }
     else{
-      setChangeQuant(changeQuant + restock);
+      const newQuantity = quantity + restock;
+      const updatedDetails = {quantity: newQuantity, ...rest};
+      setItemDetails(updatedDetails);
+      updateDB(updatedDetails);
       toast.success("Item is restocked successfully!", {
         position: "bottom-right",
       });
       e.target.reset();
     }
-  };
+  }
 
-  useEffect(() => {
-    const updatedItem = {image, name, description, supplier_name, price, changeQuant};
 
+  const updateDB = (updatedDetails) => {
     fetch(`http://localhost:5000/inventory/${_id}`, {
       method: "PUT",
       headers: {
-        "Content-Type": "application/json",
+      "Content-Type": "application/json",
       },
-      body: JSON.stringify(updatedItem),
+      body: JSON.stringify(updatedDetails),
     })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-  }, [changeQuant]);
+    .then((res) => res.json())
+    .then((data) => console.log(data));
+  }
 
   return (
     <div>
@@ -87,7 +89,7 @@ const ManageItem = () => {
                 <h3 className="mb-3">Supplier Name : {supplier_name}</h3>
                 <p className="w-100 mb-3">{description}</p>
                 <h5 className="mb-3">Price : ${price}</h5>
-                <h5>Quantity : {changeQuant}</h5>
+                <h5>Quantity : {quantity}</h5>
                 <button className="btn btn-dark mb-4 mt-3" onClick={handleDelivered}>Delivered</button>
                 <div>
                   <form onSubmit={handleRestock}>
@@ -100,6 +102,7 @@ const ManageItem = () => {
           </div>
         </div>
       </div>
+      <Footer></Footer>
       <ToastContainer />
     </div>
   );
