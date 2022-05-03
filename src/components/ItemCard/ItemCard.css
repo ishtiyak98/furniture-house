@@ -16,7 +16,11 @@
 }
 
 .number{
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.manage-btn:hover{
+    color: #FFC107;
 }
 
 /*! for tablet breakpoints */

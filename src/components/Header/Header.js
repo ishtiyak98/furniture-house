@@ -33,7 +33,7 @@ const Header = () => {
                         <Nav.Link className='mx-2' as={ActiveLink} to={"/about"}>Add Item</Nav.Link>
                         <Nav.Link className='mx-2' as={ActiveLink} to={"/myitem"}>My Items</Nav.Link>
                         {
-                            user ? <Nav.Link className='mx-2' onClick={handleSignOut}>Logout</Nav.Link> : <Nav.Link className='mx-2' as={ActiveLink} to={"/login"}>Login</Nav.Link>
+                            user ? <Nav.Link style={{color: "#FFFFFF"}} className='mx-2' onClick={handleSignOut}>Logout</Nav.Link> : <Nav.Link className='mx-2' as={ActiveLink} to={"/login"}>Login</Nav.Link>
                         }
                     </Nav>
                 </Navbar.Collapse>

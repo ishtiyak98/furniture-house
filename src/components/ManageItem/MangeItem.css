@@ -1,0 +1,27 @@
+.restock-field{
+    padding: 5px 6px;
+    border-right: none;
+    border-top: 2px solid #1C1F23;
+    border-bottom: 2px solid #1C1F23;
+    border-left: 2px solid #1C1F23;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    outline: none;
+}
+
+.restock-btn{
+    padding: 5px 12px;
+    color: #FFFFFF;
+    border: 2px solid #1C1F23;
+    background-color: #1C1F23;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.delivered-btn:hover{
+    color: #FFC107;
+}
+
+.restock-btn:hover{
+    color: #FFC107;
+}

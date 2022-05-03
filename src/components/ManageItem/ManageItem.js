@@ -5,6 +5,7 @@ import Header from "../Header/Header";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "../Footer/Footer";
+import "./MangeItem.css";
 
 const ManageItem = () => {
   const { _id } = useParams();
@@ -90,11 +91,11 @@ const ManageItem = () => {
                 <p className="w-100 mb-3">{description}</p>
                 <h5 className="mb-3">Price : ${price}</h5>
                 <h5>Quantity : {quantity}</h5>
-                <button className="btn btn-dark mb-4 mt-3" onClick={handleDelivered}>Delivered</button>
+                <button className="btn btn-dark mb-4 mt-3 delivered-btn" onClick={handleDelivered}>Delivered</button>
                 <div>
                   <form onSubmit={handleRestock}>
-                    <input type="number" name="restock" id="restock"/>
-                    <input type="submit" value="Restock" />
+                    <input className="restock-field" type="number" name="restock" id="restock"/>
+                    <input className="restock-btn" type="submit" value="Restock" />
                   </form>
                 </div>
               </div>

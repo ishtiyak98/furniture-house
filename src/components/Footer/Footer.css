@@ -1,0 +1,30 @@
+.social-icon{
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    text-decoration: none;
+    color: white;
+}
+
+.social-icon:hover{
+    background-color: #FFC107;
+    color: #000000;
+}
+
+.footer-header{
+    color: #FFC107;
+}
+
+.footer-option{
+    color: #FFFFFF;
+}
+
+.footer-option:hover{
+    color: #FFC107;
+    cursor: pointer;
+}

@@ -17,7 +17,7 @@ const ItemCard = ({ item }) => {
             <h6>Price: $<span className="fw-normal number">{price}</span></h6>
             <h6>Quantity: <span className="fw-normal number">{quantity}</span></h6>
           </div>
-          <button className="btn btn-dark w-50" onClick={()=>{navigate(`/inventory/${_id}`)}}>Manage</button>
+          <button className="btn btn-dark w-50 manage-btn" onClick={()=>{navigate(`/inventory/${_id}`)}}>Manage</button>
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@ const ActiveLink = ({ children, to, ...props }) => {
   let match = useMatch({ path: resolved.pathname, end: true });
   return (
     <div>
-      <Link style={{ color: match ? "#FFFFFF" : "#BEBEBE" }} to={to} {...props}>
+      <Link style={{ color: match ? "#FFC107" : "#FFFFFF" }} to={to} {...props}>
         {children}
       </Link>
     </div>
