@@ -24,7 +24,7 @@ const Header = () => {
         <>
            <Navbar className="py-3" collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
-                <Navbar.Brand as={Link} to={"/"} className='d-flex'><span style={{fontFamily: 'Raleway'}}>Furniture House</span></Navbar.Brand>
+                <Navbar.Brand as={Link} to={"/"} className='d-flex fw-bold'><span style={{fontFamily: 'Raleway'}}>Furniture House</span></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav style={{fontFamily: 'Raleway'}} className="ms-auto">

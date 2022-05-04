@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import Swal from "sweetalert2";
+import SigninWithApp from "../SigninWithApp/SigninWithApp";
 
 const SignupPage = () => {
   const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
@@ -95,6 +96,7 @@ const SignupPage = () => {
                   Login
                 </Link>
               </p>
+              <SigninWithApp></SigninWithApp>
             </div>
           </div>
         </div>
