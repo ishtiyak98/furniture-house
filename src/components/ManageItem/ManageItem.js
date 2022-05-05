@@ -76,7 +76,7 @@ const ManageItem = () => {
   }
 
   return (
-    <div>
+    <>
       <Header></Header>
       <div className="container py-2 my-5 py-md-3 my-md-3 py-lg-5 my-lg-5">
         <div className="w-75 mx-auto">
@@ -105,7 +105,7 @@ const ManageItem = () => {
       </div>
       <Footer></Footer>
       <ToastContainer />
-    </div>
+    </>
   );
 };
 

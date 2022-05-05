@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from "react-firebase-hooks/auth";
@@ -10,6 +10,7 @@ const SignupPage = () => {
   const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile, updating, updateProfileError] = useUpdateProfile(auth);
   const navigate = useNavigate();
+  const [passError, setPassError] = useState("");
 
 //!-------- Handle Signup Form --------
   const handleSubmit = async(e) => {
@@ -20,11 +21,20 @@ const SignupPage = () => {
     const pass = e.target.password.value;
     console.log(name, email, pass);
 
-    await createUserWithEmailAndPassword(email, pass);
-    await updateProfile({ displayName: name })
+    if (/.{6,}/.test(pass) === false) {
+      setPassError("minimum characters must be 6!");
+      console.log('gnf');
+    }
+    else{
+      console.log('add');
+      setPassError("");
+      await createUserWithEmailAndPassword(email, pass);
+      await updateProfile({ displayName: name })
+    }
   };
 
   if (user) {
+    console.log(user);
     Swal.fire({
         title: "Account created!",
         text: "You can login now",
@@ -50,7 +60,6 @@ const SignupPage = () => {
                     placeholder="Enter name"
                     name="userName"
                     required
-                    // onChange={handleName}
                   />
                 </Form.Group>
 
@@ -62,9 +71,6 @@ const SignupPage = () => {
                     name="email"
                     required
                   />
-                  <div className="text-danger">
-                    {/* {loginError?.emailError ? loginError.emailError : ""} */}
-                  </div>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -75,15 +81,13 @@ const SignupPage = () => {
                     name="password"
                     required
                   />
-                  {/* <div className="text-danger">
-                      {loginError?.passwordError
-                        ? loginError.passwordError
-                        : ""}
-                    </div> */}
+                  <div className="text-danger">
+                  {passError && passError}
+                  </div>
                 </Form.Group>
 
                 <Button className="w-100" variant="dark" type="submit">
-                  Login
+                  Signup
                 </Button>
               </Form>
 

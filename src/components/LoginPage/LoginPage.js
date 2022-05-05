@@ -25,6 +25,22 @@ const LoginPage = () => {
   };
 
   if (user) {
+
+    const data = {email: user?.user?.email};
+    console.log(data);
+    fetch("http://localhost:5000/login", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      localStorage.setItem("token", data.token);
+    })
+
     Swal.fire({
       title: "Welcome",
       text: "Successfully logged in",

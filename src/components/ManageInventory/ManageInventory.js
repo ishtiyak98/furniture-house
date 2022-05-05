@@ -38,9 +38,9 @@ const ManageInventory = () => {
   };
 
   return (
-    <div>
+    <>
       <Header></Header>
-      <div className="container py-5 my-5">
+      <div className="container py-5 my-4">
         <h2 className="text-center fw-bold mb-4">Manage Inventory</h2>
 
         <Table responsive striped bordered hover variant="dark">
@@ -75,7 +75,7 @@ const ManageInventory = () => {
         </Table>
       </div>
       <Footer></Footer>
-    </div>
+    </>
   );
 };
 
