@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router-dom";
+import AddItem from "./components/AddItem/AddItem";
 import HomePage from "./components/HomePage/HomePage";
 import LoginPage from "./components/LoginPage/LoginPage";
 import ManageInventory from "./components/ManageInventory/ManageInventory";
@@ -22,6 +23,7 @@ function App() {
           </ProtectedRoute>}>
         </Route>
         <Route path="/manage_inventory" element={<ManageInventory></ManageInventory>}></Route>
+        <Route path="/addItem" element={<AddItem></AddItem>}></Route>
         <Route path="*" element={<PageNotFound></PageNotFound>}></Route>
       </Routes>
     </div>

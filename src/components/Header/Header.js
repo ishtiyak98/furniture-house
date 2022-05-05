@@ -30,7 +30,7 @@ const Header = () => {
                     <Nav style={{fontFamily: 'Raleway'}} className="ms-auto">
                         <Nav.Link className='mx-2' as={ActiveLink} to={"/"}>Home</Nav.Link>
                         <Nav.Link className='mx-2' as={ActiveLink} to={"/manage_inventory"}>Manage Inventory</Nav.Link>
-                        <Nav.Link className='mx-2' as={ActiveLink} to={"/about"}>Add Item</Nav.Link>
+                        <Nav.Link className='mx-2' as={ActiveLink} to={"/addItem"}>Add Item</Nav.Link>
                         <Nav.Link className='mx-2' as={ActiveLink} to={"/myitem"}>My Items</Nav.Link>
                         {
                             user ? <Nav.Link style={{color: "#FFFFFF"}} className='mx-2' onClick={handleSignOut}>Logout</Nav.Link> : <Nav.Link className='mx-2' as={ActiveLink} to={"/login"}>Login</Nav.Link>

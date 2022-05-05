@@ -1,0 +1,14 @@
+.add-form{
+    width: 100%;
+}
+
+.add-form input{
+    width: 550px;
+}
+
+
+@media only screen and (max-width: 576px) {
+    .add-form input{
+        width: 320px;
+    }
+}
