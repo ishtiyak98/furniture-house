@@ -36,7 +36,7 @@ const AddItem = () => {
   return (
     <div>
       <Header></Header>
-      <div className="container my-5 py-5">
+      <div className="container my-5 py-4">
         <h2 className="text-center fw-bold mb-4">Add New Item</h2>
 
         <div className="add-form d-flex justify-content-center">

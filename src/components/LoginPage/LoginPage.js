@@ -25,7 +25,6 @@ const LoginPage = () => {
   };
 
   if (user) {
-
     const data = {email: user?.user?.email};
     console.log(data);
     fetch("http://localhost:5000/login", {
@@ -39,14 +38,13 @@ const LoginPage = () => {
     .then(data => {
       console.log(data);
       localStorage.setItem("token", data.token);
+      Swal.fire({
+        title: "Welcome",
+        text: "Successfully logged in",
+        icon: "success",
+      });
+      navigate(from, { replace: true });
     })
-
-    Swal.fire({
-      title: "Welcome",
-      text: "Successfully logged in",
-      icon: "success",
-    });
-    navigate(from, { replace: true });
   }
 
   if (loading) {

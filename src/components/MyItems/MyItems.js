@@ -1,6 +1,8 @@
+import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import auth from "../../firebase.init";
 import Footer from "../Footer/Footer";
@@ -10,18 +12,34 @@ import "./MyItems.css";
 const MyItems = () => {
   const [items, setItems] = useState([]);
   const [user] = useAuthState(auth);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:5000/inventory")
+    console.log("trigger");
+    console.log("form local:", localStorage.getItem("token"));
+    fetch("http://localhost:5000/myItems", {
+      headers: {
+        authorization: `${user.email} ${localStorage.getItem("token")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
-          console.log(data);
-          console.log(user?.email);
-          const filterData = data.filter( item => item?.userEmail === user?.email);
-          console.log(filterData);
-          setItems(filterData);
+        if(data.message === "forbidden access"){
+          Swal.fire({
+            title: "Un-authorized Access",
+            text: "Please Login Again",
+            icon: 'error',
+          });
+          signOut(auth);
+          
+        }
+        else{
+          setItems(data);
+        }
       });
-  }, [user?.email]);
+  }, [user.email]);
+
+  
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -63,24 +81,25 @@ const MyItems = () => {
               </tr>
             </thead>
             <tbody>
-              {items.map((item) => (
-                <tr key={item._id}>
-                  <td>{item.name}</td>
-                  <td>{item.supplier_name}</td>
-                  <td>{item.quantity}</td>
-                  <td className="text-center">
-                    <button
-                      className="btn btn-danger"
-                      onClick={() => {
-                        handleDelete(item._id);
-                      }}
-                    >
-                      {" "}
-                      Delete{" "}
-                    </button>
-                  </td>
-                </tr>
-              ))}
+              {items &&
+                items.map((item) => (
+                  <tr key={item._id}>
+                    <td>{item.name}</td>
+                    <td>{item.supplier_name}</td>
+                    <td>{item.quantity}</td>
+                    <td className="text-center">
+                      <button
+                        className="btn btn-danger"
+                        onClick={() => {
+                          handleDelete(item._id);
+                        }}
+                      >
+                        {" "}
+                        Delete{" "}
+                      </button>
+                    </td>
+                  </tr>
+                ))}
             </tbody>
           </Table>
         </div>
