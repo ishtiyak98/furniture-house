@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Table } from "react-bootstrap";
+import { Spinner, Table } from "react-bootstrap";
 import Swal from "sweetalert2";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
@@ -12,6 +12,14 @@ const ManageInventory = () => {
       .then((res) => res.json())
       .then((data) => setItems(data));
   }, []);
+
+  if (items.length === 0) {
+    return (
+      <div style={{height : "100vh"}} className="text-center d-flex align-items-center justify-content-center">
+        <Spinner animation="border" variant="dark" />
+      </div>
+    );
+  }
 
   const handleDelete = (id) => {
     Swal.fire({

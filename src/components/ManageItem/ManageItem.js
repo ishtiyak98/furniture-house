@@ -6,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "../Footer/Footer";
 import "./MangeItem.css";
+import { Spinner } from "react-bootstrap";
 
 const ManageItem = () => {
   const { _id } = useParams();
@@ -17,8 +18,17 @@ const ManageItem = () => {
       .then((data) => setItemDetails(data));
   }, [_id]);
 
-  const { image, name, description, supplier_name, price, quantity } =
-    itemDetails;
+  console.log(itemDetails);
+
+  if (Object.keys(itemDetails).length === 0) {
+    return (
+      <div style={{height : "100vh"}} className="text-center d-flex align-items-center justify-content-center">
+        <Spinner animation="border" variant="dark" />
+      </div>
+    );
+  }
+
+  const { image, name, description, supplier_name, price, quantity } = itemDetails;
 
   const handleDelivered = () => {
     const { quantity, ...rest } = itemDetails;
