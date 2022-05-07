@@ -8,6 +8,7 @@ import ManageInventory from "./components/ManageInventory/ManageInventory";
 import ManageItem from "./components/ManageItem/ManageItem";
 import MyItems from "./components/MyItems/MyItems";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
+import PassReset from "./components/PassReset/PassReset";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import SignupPage from "./components/SignupPage/SignupPage";
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/home" element={<HomePage></HomePage>}></Route>
         <Route path="/login" element={<LoginPage></LoginPage>}></Route>
         <Route path="/signup" element={<SignupPage></SignupPage>}></Route>
+        <Route path="/resetPass" element={<PassReset></PassReset>}></Route>
         <Route path="/inventory/:_id" element={
           <ProtectedRoute>
             <ManageItem></ManageItem>

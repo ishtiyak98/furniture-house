@@ -69,8 +69,8 @@ const LoginPage = () => {
         <div className="col-lg-6 left-img"></div>
         <div className="col-lg-6">
           <div className="d-flex justify-content-center align-items-center login-form">
-            <div className="">
-              <h2 className="text-center my-3">Login</h2>
+            <div className="shadow rounded-3 p-5">
+              <h2 className="text-center fw-bold mb-3">Login</h2>
 
               {/* <form action="">
                         <input className="d-block" type="email" name="email" id="email" placeholder="Email"/>
@@ -112,7 +112,11 @@ const LoginPage = () => {
                 </Button>
               </Form>
 
-              <p className="my-3 text-center">
+              <p className="my-3">
+                Forget your password? <Link className="text-primary text-decoration-none" to={"/resetPass"}>reset here</Link>
+              </p>
+
+              <p className="my-4 text-center">
                 Don't have an account?{" "}
                 <Link
                   className="text-primary text-decoration-none"
