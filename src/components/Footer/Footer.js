@@ -10,9 +10,11 @@ const Footer = () => {
       <div className="container pt-5">
         <div className="row gy-3">
           <div className="col-lg-4">
+          <h4 className="footer-header mb-3">About Us</h4>
+          <h1 style={{fontFamily: 'Marck Script'}}>Furniture House</h1>
             <p className="fw-lighter">
-              Millions of people of all ages and from around the world are
-              improving their lives with us
+              We offers furniture storage services and 
+              supply chain solutions. We provide innovative solutions with the best people, processes, and technology.
             </p>
           </div>
           <div className="col-lg-8">

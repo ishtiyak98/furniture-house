@@ -1,0 +1,16 @@
+.service-card{
+    /* border: 2px solid gray; */
+    
+    background-color: #f4f4f4;
+}
+
+.service-icon{
+    color: #FFC107;
+    background-color: black;
+    transition: background-color 0.3s, color 0.1s;
+}
+
+.service-card:hover .service-icon{
+    color: white;
+    background-color: #FFC107;
+}
