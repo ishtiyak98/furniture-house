@@ -17,29 +17,25 @@ const MyItems = () => {
   useEffect(() => {
     console.log("trigger");
     console.log("form local:", localStorage.getItem("token"));
-    fetch("http://localhost:5000/myItems", {
+    fetch("https://radiant-harbor-32543.herokuapp.com/myItems", {
       headers: {
         authorization: `${user.email} ${localStorage.getItem("token")}`,
       },
     })
       .then((res) => res.json())
       .then((data) => {
-        if(data.message === "forbidden access"){
+        if (data.message === "forbidden access") {
           Swal.fire({
             title: "Un-authorized Access",
             text: "Please Login Again",
-            icon: 'error',
+            icon: "error",
           });
           signOut(auth);
-          
-        }
-        else{
+        } else {
           setItems(data);
         }
       });
   }, [user.email]);
-
-  
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -48,7 +44,7 @@ const MyItems = () => {
       confirmButtonText: "Delete",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/deleteItem/${id}`, {
+        fetch(`https://radiant-harbor-32543.herokuapp.com/deleteItem/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

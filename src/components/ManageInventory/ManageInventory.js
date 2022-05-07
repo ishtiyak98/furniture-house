@@ -8,7 +8,7 @@ const ManageInventory = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/inventory")
+    fetch("https://radiant-harbor-32543.herokuapp.com/inventory")
       .then((res) => res.json())
       .then((data) => setItems(data));
   }, []);
@@ -20,7 +20,7 @@ const ManageInventory = () => {
       confirmButtonText: "Delete",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/deleteItem/${id}`, {
+        fetch(`https://radiant-harbor-32543.herokuapp.com/deleteItem/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -34,7 +34,6 @@ const ManageInventory = () => {
           });
       }
     });
-
   };
 
   return (

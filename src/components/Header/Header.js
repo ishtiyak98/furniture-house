@@ -22,9 +22,9 @@ const Header = () => {
 
     return (
         <>
-           <Navbar className="py-3" collapseOnSelect expand="lg" bg="black" variant="dark">
+           <Navbar className="py-1" collapseOnSelect expand="lg" bg="black" variant="dark">
                 <Container>
-                <Navbar.Brand as={Link} to={"/"} className='d-flex fw-bold'><span style={{fontFamily: 'Raleway'}}>Furniture House</span></Navbar.Brand>
+                <Navbar.Brand as={Link} to={"/"} className='d-flex fw-bold'><span style={{fontFamily: 'Marck Script'}} className={"fs-1 fw-lighter"}>Furniture House</span></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav style={{fontFamily: 'Raleway'}} className="ms-auto">

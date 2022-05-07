@@ -14,7 +14,7 @@ const AddItem = () => {
   const addItem = (data, e) => {
     e.target.reset();
     console.log(data);
-    fetch("http://localhost:5000/newItem", {
+    fetch("https://radiant-harbor-32543.herokuapp.com/newItem", {
       method: "POST",
       headers: {
         "content-type": "application/json",

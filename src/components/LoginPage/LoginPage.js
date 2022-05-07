@@ -8,7 +8,8 @@ import SigninWithApp from "../SigninWithApp/SigninWithApp";
 import "./LoginPage.css";
 
 const LoginPage = () => {
-  const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
   const navigate = useNavigate();
   let location = useLocation();
 
@@ -25,30 +26,30 @@ const LoginPage = () => {
   };
 
   if (user) {
-    const data = {email: user?.user?.email};
+    const data = { email: user?.user?.email };
     console.log(data);
-    fetch("http://localhost:5000/login", {
+    fetch("https://radiant-harbor-32543.herokuapp.com/login", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify(data),
     })
-    .then(res => res.json())
-    .then(data => {
-      console.log(data);
-      localStorage.setItem("token", data.token);
-      Swal.fire({
-        title: "Welcome",
-        text: "Successfully logged in",
-        icon: "success",
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        localStorage.setItem("token", data.token);
+        Swal.fire({
+          title: "Welcome",
+          text: "Successfully logged in",
+          icon: "success",
+        });
+        navigate(from, { replace: true });
       });
-      navigate(from, { replace: true });
-    })
   }
 
   if (loading) {
-    return(
+    return (
       <div className="position-absolute top-50 start-50 translate-middle">
         <Spinner animation="border" variant="dark" />
       </div>
@@ -113,7 +114,13 @@ const LoginPage = () => {
               </Form>
 
               <p className="my-3">
-                Forget your password? <Link className="text-primary text-decoration-none" to={"/resetPass"}>reset here</Link>
+                Forget your password?{" "}
+                <Link
+                  className="text-primary text-decoration-none"
+                  to={"/resetPass"}
+                >
+                  reset here
+                </Link>
               </p>
 
               <p className="my-4 text-center">
