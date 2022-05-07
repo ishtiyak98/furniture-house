@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import ItemCard from "../ItemCard/ItemCard";
 import "./Items.css";
 
@@ -27,6 +28,9 @@ const Items = () => {
         {items.map((item) => (
           <ItemCard key={item._id} item={item}></ItemCard>
         ))}
+      </div>
+      <div className="text-center">
+        <Link to={"/manage_inventory"} className="mt-5 px-4 btn btn-dark d-inline-block text-white text-decoration-none">Manage Inventories</Link>
       </div>
     </div>
   );

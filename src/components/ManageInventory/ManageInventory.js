@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Spinner, Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
@@ -49,6 +50,10 @@ const ManageInventory = () => {
       <Header></Header>
       <div className="container py-5 my-4">
         <h2 className="text-center fw-bold mb-4">Manage Inventory</h2>
+
+        <div className="text-center">
+        <Link to={"/addItem"} className="mb-4 px-4 btn btn-dark d-inline-block text-white text-decoration-none">add new item</Link>
+      </div>
 
         <Table responsive striped bordered hover variant="dark">
           <thead>

@@ -34,7 +34,7 @@ const ManageItem = () => {
     const { quantity, ...rest } = itemDetails;
     if (quantity <= 0) {
       Swal.fire({
-        title: "Error",
+        title: "Sold Out",
         text: "Minimum quantity reached",
         icon: "error",
       });

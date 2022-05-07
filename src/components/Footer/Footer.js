@@ -32,9 +32,10 @@ const Footer = () => {
                 <h6><a className="footer-option text-decoration-none fw-lighter" href="#category">Contact</a></h6>
               </div>
               <div className="col-12 col-sm-12 col-md-4 col-lg-4">
+              <h4 className="footer-header mb-3 text-center text-lg-start mt-3 mt-lg-0 d-none d-lg-block">Social</h4>
               <div className="d-flex align-items-center justify-content-center justify-content-lg-start my-3 my-lg-0">
                 <a href="https://www.facebook.com" rel="noreferrer" target={"_blank"}>
-                  <span className="social-icon mx-2">
+                  <span className="social-icon me-2">
                     <FaFacebookF size={"1.2em"}></FaFacebookF>
                   </span>
                 </a>
