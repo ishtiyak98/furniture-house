@@ -14,6 +14,7 @@ const LoginPage = () => {
 
   let from = location.state?.from?.pathname || "/";
 
+  //!------- handle-submit form -------
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -24,6 +25,7 @@ const LoginPage = () => {
     signInWithEmailAndPassword(email, password);
   };
 
+  //!------- set JWT token after login -------
   if (user) {
     const data = { email: user?.user?.email };
     console.log(data);
@@ -47,6 +49,7 @@ const LoginPage = () => {
       });
   }
 
+  //!------- loading-spinner -------
   if (loading) {
     return (
       <div className="position-absolute top-50 start-50 translate-middle">
@@ -55,6 +58,7 @@ const LoginPage = () => {
     );
   }
 
+  //!------- login error display -------
   if (error) {
     Swal.fire({
       title: "Error",

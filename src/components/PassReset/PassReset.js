@@ -10,6 +10,7 @@ import auth from "../../firebase.init";
 const PassReset = () => {
   const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
 
+  //!------- handle form function --------
   const handleSubmit = async(e) => {
     e.preventDefault();
 
@@ -18,12 +19,14 @@ const PassReset = () => {
     toast.success("Password reset email sent!");
   };
 
+  //!------- sending mail message --------
   useEffect(()=>{
     if(sending){
         toast.info("sending password reset email...");
     }
   }, [sending]);
 
+  //!------- reset error --------
   useEffect(() => {
     if (error) {
       Swal.fire({

@@ -11,7 +11,7 @@ const Blog = () => {
 
         <div className="item-card p-4 rounded-3 bg-black mb-4">
           <h3 className="mb-3 text-white">
-            Difference between JavaScript and NodeJS
+            Difference between JavaScript and NodeJS?
           </h3>
           <p className="text-white">
             JavaScript is a programming language and NodeJS is not a programming

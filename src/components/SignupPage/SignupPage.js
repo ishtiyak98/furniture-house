@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from "react-firebase-hooks/auth";
@@ -33,6 +33,7 @@ const SignupPage = () => {
     }
   };
 
+  //!-------- Successful signup message --------
   if (user) {
     console.log(user);
     Swal.fire({
@@ -42,6 +43,17 @@ const SignupPage = () => {
       });
       navigate("/login");
   }
+
+  //!----------- alert for error message-------------
+  useEffect(() => {
+    if (error) {
+      Swal.fire({
+        title: "Error",
+        text: error.message,
+        icon: "error",
+      });
+    }
+  }, [error]);
 
   return (
     <div>

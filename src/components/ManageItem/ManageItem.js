@@ -107,6 +107,7 @@ const ManageItem = () => {
               <div className="text-lg-start text-center mt-3 mt-lg-0">
                 <h1 className="fw-bold mb-3">{name}</h1>
                 <h3 className="mb-3">Supplier Name : {supplier_name}</h3>
+                <p className="mb-3">Item ID : {_id}</p>
                 <p className="w-100 mb-3">{description}</p>
                 <h5 className="mb-3">Price : ${price}</h5>
                 <h5>Quantity : {quantity}</h5>

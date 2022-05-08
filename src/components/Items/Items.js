@@ -23,7 +23,7 @@ const Items = () => {
 
   return (
     <div className="py-5 my-5 container">
-      <h1 className="text-center mb-5 fw-bold">Our Inventory</h1>
+      <h1 className="text-center mb-5 fw-bold">Our <span className="text-warning">Inventory</span></h1>
       <div className="row gx-lg-5 gy-5">
         {items.map((item) => (
           <ItemCard key={item._id} item={item}></ItemCard>

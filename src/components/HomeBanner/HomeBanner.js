@@ -9,8 +9,8 @@ const HomeBanner = () => {
 
       <div className="d-flex justify-content-center align-items-center banner-box">
         <div className="container banner-text">
-            <h1 className="text-center ">R&S WareHouse</h1>
-            <h2 className="text-center ">Store.Buy.Anytime</h2>
+            <h1 className="text-center ">Furniture House</h1>
+            <h2 className="text-center ">Store.Transport.Anytime</h2>
         </div>
       </div>
     </div>
