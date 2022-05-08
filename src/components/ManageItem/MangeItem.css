@@ -25,3 +25,10 @@
 .restock-btn:hover{
     color: #FFC107;
 }
+
+
+@media only screen and (max-width: 576px) {
+    .restock-field{
+        width: 40%;
+    }
+}

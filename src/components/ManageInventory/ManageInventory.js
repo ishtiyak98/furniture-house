@@ -79,6 +79,7 @@ const ManageInventory = () => {
                   >
                     Delete
                   </button>
+                  
                 </td>
               </tr>
             ))}

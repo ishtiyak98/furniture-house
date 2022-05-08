@@ -49,7 +49,7 @@ const SignupPage = () => {
         <div className="col-lg-6 left-img"></div>
         <div className="col-lg-6">
           <div className="d-flex justify-content-center align-items-center login-form">
-            <div className="shadow rounded-3 p-5">
+            <div className="shadow rounded-3 p-3 p-lg-5">
               <h2 className="text-center fw-bold mb-3">Signup</h2>
 
               <Form onSubmit={handleSubmit}>

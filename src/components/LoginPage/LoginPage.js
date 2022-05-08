@@ -69,15 +69,8 @@ const LoginPage = () => {
         <div className="col-lg-6 left-img"></div>
         <div className="col-lg-6">
           <div className="d-flex justify-content-center align-items-center login-form">
-            <div className="shadow rounded-3 p-5">
+            <div className="shadow rounded-3 p-3 p-lg-5">
               <h2 className="text-center fw-bold mb-3">Login</h2>
-
-              {/* <form action="">
-                        <input className="d-block" type="email" name="email" id="email" placeholder="Email"/>
-                        <input className="d-block" type="password" name="pass" id="pass" placeholder="Password"/>
-                        <input type="submit" value="Login" />
-                  </form>  */}
-
               <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Email</Form.Label>
@@ -87,9 +80,6 @@ const LoginPage = () => {
                     placeholder="Enter email"
                     required
                   />
-                  <div className="text-danger">
-                    {/* {loginError?.emailError ? loginError.emailError : ""} */}
-                  </div>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -100,11 +90,6 @@ const LoginPage = () => {
                     placeholder="Password"
                     required
                   />
-                  {/* <div className="text-danger">
-                      {loginError?.passwordError
-                        ? loginError.passwordError
-                        : ""}
-                    </div> */}
                 </Form.Group>
 
                 <Button className="w-100" variant="dark" type="submit">

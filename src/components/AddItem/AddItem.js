@@ -12,7 +12,7 @@ const AddItem = () => {
   const { register, handleSubmit } = useForm();
 
   const addItem = (data, e) => {
-    e.target.reset();
+    
     console.log(data);
     fetch("https://radiant-harbor-32543.herokuapp.com/newItem", {
       method: "POST",
@@ -29,6 +29,7 @@ const AddItem = () => {
             text: "Item added successfully",
             icon: "success",
           });
+          e.target.reset();
         }
       });
   };

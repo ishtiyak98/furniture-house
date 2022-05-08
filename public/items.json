@@ -54,5 +54,23 @@
         "price":1200,
         "quantity": 3,
         "supplier_name": "Wooden Enterprise"
+    },
+    {
+        "name": "Side Table",
+        "image": "https://i.ibb.co/8YyVj7B/08-1-410x492.jpg",
+        "description": "With this table, you'll not only be able to organize your important items, you'll also have a designated space of your own",
+        "price": "470",
+        "quantity": "3",
+        "supplier_name": "Woddie Enterprise",
+        "userEmail": "ishtiyakalirifat@gmail.com"
+    },
+    {
+        "name": "Upholstered Bed",
+        "image": "https://i.ibb.co/HY27HD9/48.jpg",
+        "description": "With this table, you'll not only be able to organize your important items, you'll also have a designated space of your own",
+        "price": "1400",
+        "quantity": "5",
+        "supplier_name": "Otobi",
+        "userEmail": "ishtiyakalirifat@gmail.com"
     }
 ]

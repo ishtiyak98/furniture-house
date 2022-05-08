@@ -31,8 +31,7 @@ const ManageItem = () => {
     );
   }
 
-  const { image, name, description, supplier_name, price, quantity } =
-    itemDetails;
+  const { image, name, description, supplier_name, price, quantity } = itemDetails;
 
   const handleDelivered = () => {
     const { quantity, ...rest } = itemDetails;
@@ -124,6 +123,7 @@ const ManageItem = () => {
                       type="number"
                       name="restock"
                       id="restock"
+                      required
                     />
                     <input
                       className="restock-btn"
