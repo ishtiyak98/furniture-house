@@ -9,9 +9,9 @@ import "./OurServices.css"
 const OurServices = () => {
     return (
         <div className="pb-5 mb-5 container">
-        <h1 className="text-center mb-5 fw-bold"> Our Services </h1>
+        <h1 className="text-center mb-5 fw-bold"> Our <span className="text-warning">Services</span> </h1>
         <div className="row gx-lg-5 gy-5">
-            <div className='col-lg-6'>
+            <div className='col-lg-6 px-5'>
             <div className='service-card'>
                     <div className='d-lg-flex align-items-center text-center text-lg-start'>
                         <div className='service-icon px-5 py-5'>
@@ -27,7 +27,7 @@ const OurServices = () => {
             </div>
             </div>
 
-            <div className='col-lg-6'>
+            <div className='col-lg-6 px-5'>
             <div className='service-card'>
                     <div className='d-lg-flex align-items-center text-center text-lg-start'>
                         <div className='service-icon px-5 py-5'>
@@ -43,7 +43,7 @@ const OurServices = () => {
             </div>
             </div>
 
-            <div className='col-lg-6'>
+            <div className='col-lg-6 px-5'>
             <div className='service-card'>
                     <div className='d-lg-flex align-items-center text-center text-lg-start'>
                         <div className='service-icon px-5 py-5'>
@@ -59,7 +59,7 @@ const OurServices = () => {
             </div>
             </div>
 
-            <div className='col-lg-6'>
+            <div className='col-lg-6 px-5'>
             <div className='service-card'>
                     <div className='d-lg-flex align-items-center text-center text-lg-start'>
                         <div className='service-icon px-5 py-5'>
