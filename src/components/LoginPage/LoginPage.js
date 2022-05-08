@@ -20,7 +20,6 @@ const LoginPage = () => {
 
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password);
 
     signInWithEmailAndPassword(email, password);
   };
@@ -28,7 +27,6 @@ const LoginPage = () => {
   //!------- set JWT token after login -------
   if (user) {
     const data = { email: user?.user?.email };
-    console.log(data);
     fetch("https://radiant-harbor-32543.herokuapp.com/login", {
       method: "POST",
       headers: {
@@ -38,7 +36,6 @@ const LoginPage = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         localStorage.setItem("token", data.token);
         Swal.fire({
           title: "Welcome",

@@ -12,13 +12,12 @@ const ManageItem = () => {
   const { _id } = useParams();
   const [itemDetails, setItemDetails] = useState({});
 
+  //!--------- fetch data ---------
   useEffect(() => {
     fetch(`https://radiant-harbor-32543.herokuapp.com/inventory/${_id}`)
       .then((res) => res.json())
       .then((data) => setItemDetails(data));
   }, [_id]);
-
-  console.log(itemDetails);
 
   if (Object.keys(itemDetails).length === 0) {
     return (
@@ -33,6 +32,7 @@ const ManageItem = () => {
 
   const { image, name, description, supplier_name, price, quantity } = itemDetails;
 
+  //!--------- delivered item ---------
   const handleDelivered = () => {
     const { quantity, ...rest } = itemDetails;
     if (quantity <= 0) {
@@ -52,6 +52,7 @@ const ManageItem = () => {
     }
   };
 
+  //!--------- restock item ---------
   const handleRestock = (e) => {
     e.preventDefault();
     const { quantity, ...rest } = itemDetails;
@@ -74,6 +75,8 @@ const ManageItem = () => {
     }
   };
 
+
+  //!--------- update DB after any change ---------
   const updateDB = (updatedDetails) => {
     fetch(`https://radiant-harbor-32543.herokuapp.com/inventory/${_id}`, {
       method: "PUT",

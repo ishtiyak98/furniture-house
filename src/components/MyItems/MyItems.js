@@ -15,8 +15,6 @@ const MyItems = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("trigger");
-    console.log("form local:", localStorage.getItem("token"));
     fetch("https://radiant-harbor-32543.herokuapp.com/myItems", {
       headers: {
         authorization: `${user.email} ${localStorage.getItem("token")}`,

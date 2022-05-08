@@ -19,7 +19,6 @@ const SigninWithApp = () => {
   
 
   if (googleUser) {
-    console.log(googleUser);
     const data = { email: googleUser?.user?.email };
 
     fetch("https://radiant-harbor-32543.herokuapp.com/login", {
@@ -31,7 +30,6 @@ const SigninWithApp = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         localStorage.setItem("token", data.token);
         Swal.fire({
           title: "Welcome",
