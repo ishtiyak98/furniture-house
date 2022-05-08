@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import Header from "../Header/Header";
 import { ToastContainer, toast } from "react-toastify";
@@ -22,13 +22,17 @@ const ManageItem = () => {
 
   if (Object.keys(itemDetails).length === 0) {
     return (
-      <div style={{height : "100vh"}} className="text-center d-flex align-items-center justify-content-center">
+      <div
+        style={{ height: "100vh" }}
+        className="text-center d-flex align-items-center justify-content-center"
+      >
         <Spinner animation="border" variant="dark" />
       </div>
     );
   }
 
-  const { image, name, description, supplier_name, price, quantity } = itemDetails;
+  const { image, name, description, supplier_name, price, quantity } =
+    itemDetails;
 
   const handleDelivered = () => {
     const { quantity, ...rest } = itemDetails;
@@ -87,6 +91,14 @@ const ManageItem = () => {
     <>
       <Header></Header>
       <div className="container py-2 my-5 py-md-3 my-md-3 py-lg-5 my-lg-5">
+        <div className="text-end">
+          <Link
+            to={"/manage_inventory"}
+            className="mb-4 px-4 btn btn-dark d-inline-block text-white text-decoration-none"
+          >
+            Manage Inventories
+          </Link>
+        </div>
         <div className="w-75 mx-auto">
           <div className="row gx-lg-5">
             <div className="col-lg-4">

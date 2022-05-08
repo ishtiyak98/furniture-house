@@ -52,8 +52,8 @@ const ManageInventory = () => {
         <h2 className="text-center fw-bold mb-4">Manage Inventory</h2>
 
         <div className="text-center">
-        <Link to={"/addItem"} className="mb-4 px-4 btn btn-dark d-inline-block text-white text-decoration-none">add new item</Link>
-      </div>
+          <Link to={"/addItem"} className="mb-4 px-4 btn btn-dark d-inline-block text-white text-decoration-none">add new item</Link>
+        </div>
 
         <Table responsive striped bordered hover variant="dark">
           <thead>
@@ -72,13 +72,12 @@ const ManageInventory = () => {
                 <td>{item.quantity}</td>
                 <td className="text-center">
                   <button
-                    className="btn btn-danger"
+                    className="btn btn-danger px-4 "
                     onClick={() => {
                       handleDelete(item._id);
                     }}
                   >
-                    {" "}
-                    Delete{" "}
+                    Delete
                   </button>
                 </td>
               </tr>

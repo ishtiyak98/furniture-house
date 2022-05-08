@@ -8,8 +8,7 @@ import SigninWithApp from "../SigninWithApp/SigninWithApp";
 import "./LoginPage.css";
 
 const LoginPage = () => {
-  const [signInWithEmailAndPassword, user, loading, error] =
-    useSignInWithEmailAndPassword(auth);
+  const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
   const navigate = useNavigate();
   let location = useLocation();
 

@@ -19,12 +19,27 @@ const SigninWithApp = () => {
   
 
   if (googleUser) {
-    Swal.fire({
-      title: "Welcome",
-      text: "Successfully logged in",
-      icon: "success",
-    });
-    navigate(from, { replace: true });
+    console.log(googleUser);
+    const data = { email: googleUser?.user?.email };
+
+    fetch("https://radiant-harbor-32543.herokuapp.com/login", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        localStorage.setItem("token", data.token);
+        Swal.fire({
+          title: "Welcome",
+          text: "Successfully logged in",
+          icon: "success",
+        });
+        navigate(from, { replace: true });
+      });
   }
 
 
