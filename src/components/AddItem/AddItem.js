@@ -12,9 +12,8 @@ const AddItem = () => {
   const { register, handleSubmit } = useForm();
 
   const addItem = (data, e) => {
-    
     console.log(data);
-    fetch("https://radiant-harbor-32543.herokuapp.com/newItem", {
+    fetch("https://furniture-house-api.onrender.com/newItem", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -15,7 +15,7 @@ const MyItems = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("https://radiant-harbor-32543.herokuapp.com/myItems", {
+    fetch("https://furniture-house-api.onrender.com/myItems", {
       headers: {
         authorization: `${user.email} ${localStorage.getItem("token")}`,
       },
@@ -42,7 +42,7 @@ const MyItems = () => {
       confirmButtonText: "Delete",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://radiant-harbor-32543.herokuapp.com/deleteItem/${id}`, {
+        fetch(`https://furniture-house-api.onrender.com/deleteItem/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

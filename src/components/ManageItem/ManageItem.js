@@ -14,7 +14,7 @@ const ManageItem = () => {
 
   //!--------- fetch data ---------
   useEffect(() => {
-    fetch(`https://radiant-harbor-32543.herokuapp.com/inventory/${_id}`)
+    fetch(`https://furniture-house-api.onrender.com/inventory/${_id}`)
       .then((res) => res.json())
       .then((data) => setItemDetails(data));
   }, [_id]);
@@ -30,7 +30,8 @@ const ManageItem = () => {
     );
   }
 
-  const { image, name, description, supplier_name, price, quantity } = itemDetails;
+  const { image, name, description, supplier_name, price, quantity } =
+    itemDetails;
 
   //!--------- delivered item ---------
   const handleDelivered = () => {
@@ -75,10 +76,9 @@ const ManageItem = () => {
     }
   };
 
-
   //!--------- update DB after any change ---------
   const updateDB = (updatedDetails) => {
-    fetch(`https://radiant-harbor-32543.herokuapp.com/inventory/${_id}`, {
+    fetch(`https://furniture-house-api.onrender.com/inventory/${_id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

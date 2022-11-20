@@ -9,14 +9,17 @@ const ManageInventory = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch("https://radiant-harbor-32543.herokuapp.com/inventory")
+    fetch("https://furniture-house-api.onrender.com/inventory")
       .then((res) => res.json())
       .then((data) => setItems(data));
   }, []);
 
   if (items.length === 0) {
     return (
-      <div style={{height : "100vh"}} className="text-center d-flex align-items-center justify-content-center">
+      <div
+        style={{ height: "100vh" }}
+        className="text-center d-flex align-items-center justify-content-center"
+      >
         <Spinner animation="border" variant="dark" />
       </div>
     );
@@ -29,7 +32,7 @@ const ManageInventory = () => {
       confirmButtonText: "Delete",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://radiant-harbor-32543.herokuapp.com/deleteItem/${id}`, {
+        fetch(`https://furniture-house-api.onrender.com/deleteItem/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -52,7 +55,12 @@ const ManageInventory = () => {
         <h2 className="text-center fw-bold mb-4">Manage Inventory</h2>
 
         <div className="text-center">
-          <Link to={"/addItem"} className="mb-4 px-4 btn btn-dark d-inline-block text-white text-decoration-none">add new item</Link>
+          <Link
+            to={"/addItem"}
+            className="mb-4 px-4 btn btn-dark d-inline-block text-white text-decoration-none"
+          >
+            add new item
+          </Link>
         </div>
 
         <Table responsive striped bordered hover variant="dark">
@@ -79,7 +87,6 @@ const ManageInventory = () => {
                   >
                     Delete
                   </button>
-                  
                 </td>
               </tr>
             ))}

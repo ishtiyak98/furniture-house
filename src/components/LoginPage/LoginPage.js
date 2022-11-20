@@ -8,7 +8,8 @@ import SigninWithApp from "../SigninWithApp/SigninWithApp";
 import "./LoginPage.css";
 
 const LoginPage = () => {
-  const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
   const navigate = useNavigate();
   let location = useLocation();
 
@@ -27,7 +28,7 @@ const LoginPage = () => {
   //!------- set JWT token after login -------
   if (user) {
     const data = { email: user?.user?.email };
-    fetch("https://radiant-harbor-32543.herokuapp.com/login", {
+    fetch("https://furniture-house-api.onrender.com/login", {
       method: "POST",
       headers: {
         "content-type": "application/json",

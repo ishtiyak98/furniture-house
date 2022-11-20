@@ -6,14 +6,22 @@ import "./Items.css";
 
 const Items = () => {
   const [items, setItems] = useState([]);
+  const [homeItemSize, setItemSize] = useState(6);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    fetch("https://radiant-harbor-32543.herokuapp.com/inventory?itemSize=6")
+    setIsLoading(true);
+    fetch(
+      `https://furniture-house-api.onrender.com/inventory?itemSize=${homeItemSize}`
+    )
       .then((res) => res.json())
-      .then((data) => setItems(data));
-  }, []);
+      .then((data) => {
+        setIsLoading(false);
+        setItems(data);
+      });
+  }, [homeItemSize]);
 
-  if (items.length === 0) {
+  if (isLoading) {
     return (
       <div className="text-center items-area d-flex align-items-center justify-content-center">
         <Spinner animation="border" variant="dark" />
@@ -23,14 +31,21 @@ const Items = () => {
 
   return (
     <div className="py-5 my-5 container">
-      <h1 className="text-center mb-5 fw-bold">Our <span className="text-warning">Inventory</span></h1>
+      <h1 className="text-center mb-5 fw-bold">
+        Our <span className="text-warning">Inventory</span>
+      </h1>
       <div className="row gx-lg-5 gy-5">
         {items.map((item) => (
           <ItemCard key={item._id} item={item}></ItemCard>
         ))}
       </div>
       <div className="text-center">
-        <Link to={"/manage_inventory"} className="mt-5 px-4 btn btn-dark d-inline-block text-white text-decoration-none">Manage Inventories</Link>
+        <div
+          onClick={() => setItemSize(0)}
+          className="mt-5 px-4 btn btn-dark d-inline-block text-white text-decoration-none"
+        >
+          Show All Items
+        </div>
       </div>
     </div>
   );
